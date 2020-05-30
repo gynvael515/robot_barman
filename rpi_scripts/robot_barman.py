@@ -5,15 +5,48 @@ import time
 class Ingredient:
         def __init__(self, pin, dc, freq, sleep_time):
                 self.pin                = pin                           # pump
-                self.dc                 = dc                            # duty cycle            \
-                self.freq               = freq                          # frequency             -      amount
-                self.sleep_time         = sleep_time                    # pumping time period   /
+                self.dc                 = dc                            # duty cycle                    \
+                self.freq               = freq                          # frequency                             -      amount
+                self.sleep_time = sleep_time            # pumping time period   /
 
+
+
+        def start_pwm(self):
                 GPIO.setup(self.pin, self.freq)
+                GPIO.PWM(self.pin, self.freq)
+
+
+
+        def clean_pin(self):
+                GPIO.cleanup(self.pin)
+
+
 
 
 
 class Drink:
+        def __init__(self, ingredients):
+                self.ingredients = ingredients
+                self.sleep_time = 10
+
+
+
+        def make(self):
+                for i in range(len(self.ingredients)):
+                        self.ingredients[i].start_pwm()
+
+
+                # TODO: each alcohol should end in different time period
+                time.sleep(self.sleep_time)
+
+
+                for i in range(len(self.ingredients)):
+                        self.ingredients[i].clear_pin()
+
+
+
+
+class Drink_old:
         def __init__(self, pins, dcs, freqs, sleep_time):
                 self.ingredients = []
 
@@ -44,8 +77,32 @@ class Drink:
                         GPIO.cleanup(self.pins[i])
 
 
+
 if __name__ == "__main__":
-        menu = {"vodka": 21, "tonic":4}
+        menu = {"vodka": 21, "tonic":4, "a":13}
+
+        ingredient0 = Ingredient(menu["tonic"], 100, 100, 10)
+        ingredient1 = Ingredient(menu["vodka"], 50,  100, 10)
+        ingredient2 = Ingredient(menu["a"],     100, 100, 10)
+        ingredients = [ingredient0,
+                                        ingredient1,
+                                        ingredient2]
+
+
+
         GPIO.setmode(GPIO.BCM)
-        jonik = Drink([menu["tonic"], menu["vodka"], 26], [100, 50, 100], [100, 100, 100],10)
+        jonik = Drink(ingredients)
         jonik.make()
+
+        exit()
+        jonik = Drink_old([menu["tonic"], menu["vodka"], 13], [100, 50, 100], [100, 100, 100],10)
+        jonik.make()
+
+
+
+
+
+
+
+
+
