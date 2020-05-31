@@ -1,12 +1,11 @@
 import RPi.GPIO as GPIO, time
 
-pin = 4
-pin2 = 21
-
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(pin, GPIO.OUT)
-GPIO.setup(pin2, GPIO.OUT)
 
+pins = [4, 13, 21]
 
-GPIO.cleanup(pin)
-GPIO.cleanup(pin2)
+for pin in pins:
+	GPIO.setup(pin, GPIO.OUT)
+
+for pin in pins:
+	GPIO.cleanup(pin)
