@@ -14,8 +14,7 @@ class Menu:
 		self.pca.frequency = 100
 
 		sleep_time = 5
-
-		menu = {"vodka": 21, "tonic":4, "a":13}
+		menu = {"vodka": 0, "tonic":1, "a":2}
 
 		self.drinks = {}
 
@@ -59,3 +58,9 @@ class Menu:
 		# Drink18
 		# Drink19
 		# Drink20
+
+
+menu = Menu()
+
+if __name__ == "__main__":
+	menu.drinks["Srewdriver"].make()
