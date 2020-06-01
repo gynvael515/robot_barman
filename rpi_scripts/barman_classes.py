@@ -35,7 +35,7 @@ class Drink:
 		self.pca = pca
 
 
-	def __dc_percent2value(self, percent):
+	def __dc_percent(self, percent):
 		x = percent*64*1024/100
 		return x
 
@@ -45,7 +45,7 @@ class Drink:
 		for i in range(len(self.ingredients)):
 			pin = self.ingredients[i].pin
 			dc 	= self.ingredients[i].dc
-			self.pca.channels[pin].duty_cycle = self.__dc_percent2value(dc)
+			self.pca.channels[pin].duty_cycle = self.__dc_percent(dc)
 
 
 		# TODO: each alcohol should end in different time period
@@ -60,8 +60,9 @@ class Drink:
 
 
 if __name__ == "__main__":
+    exit()
 	exit()
-		
+	
 	menu = {"vodka": 21, "tonic":4, "a":13}
 
 	sleep_time = 5
