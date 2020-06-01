@@ -1,5 +1,8 @@
-import RPi.GPIO as GPIO
+from board import SCL, SDA
+import busio
 import time
+# Import the PCA9685 module.
+from adafruit_pca9685 import PCA9685
 
 
 class Ingredient:
@@ -24,24 +27,25 @@ class Ingredient:
 
 
 class Drink:
-	def __init__(self, name, ingredients):
+	def __init__(self, name, ingredients, pca):
 		self.name = name
 		self.ingredients = ingredients
 		self.sleep_time = 3
-		self.pwms       = []
+		#self.pwms       = []
+		self.pca = pca
 
+
+	def __dc_percent(self, percent):
+		x = percent*64*1024/100
+		return x
 
 
 	def make(self):
-		# Setup pins and PWMs for each ingredient and store reference to PWMs in list
-		for i in range(len(self.ingredients)):
-			GPIO.setup(self.ingredients[i].pin, GPIO.OUT)
-			self.pwms.append(GPIO.PWM(self.ingredients[i].pin, self.ingredients[i].freq))
-				
-				
 		# Run PWMs for each ingredient
 		for i in range(len(self.ingredients)):
-			self.pwms[i].start(self.ingredients[i].dc)
+			pin = self.ingredients[i].pin
+			dc 	= self.ingredients[i].dc
+			self.pca.channels[pin].duty_cycle = self.__dc_percent(dc)
 
 
 		# TODO: each alcohol should end in different time period
@@ -50,12 +54,8 @@ class Drink:
 
 		# Clean pin for each ingredient
 		for i in range(len(self.ingredients)):
-			GPIO.cleanup(self.ingredients[i].pin)
-			
-			
-		# Clean list of references to PWMs
-		self.pwms = []
-
+			pin = self.ingredients[i].pin
+			self.pca.channels[pin].duty_cycle = 0
 
 
 
