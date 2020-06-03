@@ -6,6 +6,9 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput 
 from kivy.uix.button import Button
 from kivy.uix.image import Image
+from kivy.core.window import Window
+Window.fullscreen = True
+
 import menu
 
 
@@ -23,9 +26,11 @@ class Barman_gui(RelativeLayout):
 		Buttony.append(Button(text='Drin 2' ,size_hint=(.15,.1) ,pos_hint={"center_x":.5,"center_y":.2})) #on_press=self.clearText --> KRZYCHOWA FUNKCJA
 		Buttony.append(Button(text='Drin 3' ,size_hint=(.15,.1) ,pos_hint={"center_x":.8,"center_y":.2})) #on_press=self.clearText --> KRZYCHOWA FUNKCJA
 
-		Obrazki.append(Image(source=path+'1.jpg', size_hint=(.1,.2)))
-		Obrazki.append(Image(source=path+'2.png', size_hint=(.1,.2)))
-		Obrazki.append(Image(source=path+'3.png', size_hint=(.1,.2)))
+		Obrazki.append(Image(source=path+'1.jpg', size_hint=(.5,.5) ,pos_hint={"center_x":.2,"center_y":.5}))#, on_press= self.menu.drinks["Screwdriver"].make()))#--> KRZYCHOWA FUNKCJA
+		Obrazki.append(Image(source=path+'2.png', size_hint=(.5,.5) ,pos_hint={"center_x":.5,"center_y":.5}))
+		Obrazki.append(Image(source=path+'3.png', size_hint=(.5,.5) ,pos_hint={"center_x":.8,"center_y":.5}))
+		#Obrazki.append(Image(source=path+'2.png', size_hint=(.1,.2)))
+		#Obrazki.append(Image(source=path+'3.png', size_hint=(.1,.2)))
 
 
 		#	Obrazki.append(Image(source=path+'2.png', size_hint=(.1,.2))

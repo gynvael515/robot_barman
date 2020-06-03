@@ -1,3 +1,7 @@
+rpi_scripts/build
+rpi_scripts/__pycache__
+/venv
+
 # Prerequisites
 *.d
 
