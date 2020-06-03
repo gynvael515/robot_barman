@@ -24,7 +24,12 @@ class Barman_gui(RelativeLayout):
 		Buttony.append(Button(text='Drin 1' ,size_hint=(.15,.1) ,pos_hint={"center_x":.2,"center_y":.2}))#, on_press= self.menu.drinks["Screwdriver"].make()))#--> KRZYCHOWA FUNKCJA
 		Buttony[0].bind(on_press=self.menu.drinks["Screwdriver"].make)
 		Buttony.append(Button(text='Drin 2' ,size_hint=(.15,.1) ,pos_hint={"center_x":.5,"center_y":.2})) #on_press=self.clearText --> KRZYCHOWA FUNKCJA
+		Buttony[0].bind(on_press=self.menu.drinks["Turbocola"].make)
 		Buttony.append(Button(text='Drin 3' ,size_hint=(.15,.1) ,pos_hint={"center_x":.8,"center_y":.2})) #on_press=self.clearText --> KRZYCHOWA FUNKCJA
+		Buttony.append(Button(text='exit (debug)' ,size_hint=(.15,.1) ,pos_hint={"center_x":.8,"center_y":.8}))
+		Buttony[-1].bind(on_press=self.exiter)
+
+
 
 		Obrazki.append(Image(source=path+'1.jpg', size_hint=(.5,.5) ,pos_hint={"center_x":.2,"center_y":.5}))#, on_press= self.menu.drinks["Screwdriver"].make()))#--> KRZYCHOWA FUNKCJA
 		Obrazki.append(Image(source=path+'2.png', size_hint=(.5,.5) ,pos_hint={"center_x":.5,"center_y":.5}))
@@ -41,8 +46,13 @@ class Barman_gui(RelativeLayout):
 			self.add_widget(Buttony[i])
 			self.add_widget(Obrazki[i])
  
-  
- 
+		def exiter(self, instance):
+			exit()
+
+
+
+
+
 class Bar(App):  
     def build(self): 
         # return a Barman_gui() as a root widget 

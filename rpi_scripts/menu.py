@@ -81,10 +81,10 @@ class Menu:
 
 		# Drink2
 		name = "TurboCola" 
-		ingredient0 = Ingredient(ingredients_dict["tonic"], 60, 100, sleep_time)
-		ingredient1 = Ingredient(ingredients_dict["vodka"], 60, 100, sleep_time)
-		ingredient2 = Ingredient(ingredients_dict["a"],     60, 100, sleep_time)
-		ingredients = [ingredient0, ingredient1, ingredient2]
+		ingredient0 = Ingredient(ingredients_dict["tonic"], 25, 100, sleep_time)
+		ingredient1 = Ingredient(ingredients_dict["vodka"], 90, 100, sleep_time)
+		#ingredient2 = Ingredient(ingredients_dict["a"],     60, 100, sleep_time)
+		ingredients = [ingredient0, ingredient1]
 		self.drinks[name]= Drink(name, ingredients, self.pca)
 		
 		# Drink3
