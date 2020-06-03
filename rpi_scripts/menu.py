@@ -39,7 +39,7 @@ class Drink:
 		return x
 
 
-	def make(self):
+	def make(self, instance):
 		# Run PWMs for each ingredient
 		for i in range(len(self.ingredients)):
 			pin = self.ingredients[i].pin
@@ -116,4 +116,4 @@ class Menu:
 menu = Menu()
 
 if __name__ == "__main__":
-	menu.drinks["Screwdriver"].make()
+	menu.drinks["Screwdriver"].make(0)
