@@ -1,0 +1,7 @@
+setuptools
+cython==0.29.10
+pillow
+kivy
+adafruit-pca9685
+adafruit-blinka
+
