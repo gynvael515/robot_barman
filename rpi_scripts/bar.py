@@ -1,10 +1,12 @@
 from kivy.app import App 
-from kivy.uix.gridlayout import GridLayout 
-from kivy.uix.FloatLayout import FloatLayout 
-from kivy.uix.RelativeLayout import RelativeLayout 
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.floatlayout import FloatLayout 
+from kivy.uix.relativelayout import RelativeLayout 
 from kivy.uix.label import Label 
 from kivy.uix.textinput import TextInput 
-  
+from kivy.uix.button import Button
+from kivy.uix.image import Image
+
   
 class Barman_gui(RelativeLayout): 
     def __init__(self, **var_args): 
@@ -35,4 +37,8 @@ class Bar(App):
   
   
 if __name__ == '__main__': 
+<<<<<<< HEAD
     Bar().run() 
+=======
+    Bar().run() 
+>>>>>>> a2af71e8102e924e8d10d13d977d9c6f8fe9b16c

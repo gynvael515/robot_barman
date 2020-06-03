@@ -1,7 +1,5 @@
-setuptools
-cython==0.29.10
-pillow
+adafruit-circuitpython-pca9685
+adafruit-circuitpython-servokit
 kivy
-adafruit-pca9685
-adafruit-blinka
+pillow
 

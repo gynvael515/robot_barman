@@ -35,7 +35,7 @@ class Drink:
 
 
 	def __dc_percent2value(self, percent):
-		x = percent*64*1024/100
+		x = int(percent*64*1024/100)
 		return x
 
 
@@ -65,32 +65,32 @@ class Menu:
 		self.pca = PCA9685(self.i2c_bus)
 		self.pca.frequency = 100
 
-		sleep_time = 5
+		sleep_time = 3
 		ingredients_dict = {"vodka": 0, "tonic":1, "a":2}
 
 		self.drinks = {}
 
 		# Drink1
 		name = "Screwdriver" 
-		ingredient0 = Ingredient(ingredients_dict["tonic"], 100, 100, sleep_time)
-		ingredient1 = Ingredient(ingredients_dict["vodka"], 50,  100, sleep_time)
-		ingredient2 = Ingredient(ingredients_dict["a"],     100, 100, sleep_time)
+		ingredient0 = Ingredient(ingredients_dict["tonic"], 60, 100, sleep_time)
+		ingredient1 = Ingredient(ingredients_dict["vodka"], 60, 100, sleep_time)
+		ingredient2 = Ingredient(ingredients_dict["a"],     60, 100, sleep_time)
 		ingredients = [ingredient0, ingredient1, ingredient2]
 		self.drinks[name]= Drink(name, ingredients, self.pca)
 
 		# Drink2
 		name = "TurboCola" 
-		ingredient0 = Ingredient(ingredients_dict["tonic"], 100, 100, sleep_time)
-		ingredient1 = Ingredient(ingredients_dict["vodka"], 50,  100, sleep_time)
-		ingredient2 = Ingredient(ingredients_dict["a"],     100, 100, sleep_time)
+		ingredient0 = Ingredient(ingredients_dict["tonic"], 60, 100, sleep_time)
+		ingredient1 = Ingredient(ingredients_dict["vodka"], 60, 100, sleep_time)
+		ingredient2 = Ingredient(ingredients_dict["a"],     60, 100, sleep_time)
 		ingredients = [ingredient0, ingredient1, ingredient2]
 		self.drinks[name]= Drink(name, ingredients, self.pca)
 		
 		# Drink3
 		name = "Drink1" 
-		ingredient0 = Ingredient(ingredients_dict["tonic"], 100, 100, sleep_time)
-		ingredient1 = Ingredient(ingredients_dict["vodka"], 50,  100, sleep_time)
-		ingredient2 = Ingredient(ingredients_dict["a"],     100, 100, sleep_time)
+		ingredient0 = Ingredient(ingredients_dict["tonic"], 60, 100, sleep_time)
+		ingredient1 = Ingredient(ingredients_dict["vodka"], 60, 100, sleep_time)
+		ingredient2 = Ingredient(ingredients_dict["a"],     60, 100, sleep_time)
 		ingredients = [ingredient0, ingredient1, ingredient2]
 		self.drinks[name]= Drink(name, ingredients, self.pca)
 		
@@ -116,4 +116,4 @@ class Menu:
 menu = Menu()
 
 if __name__ == "__main__":
-	menu.drinks["Srewdriver"].make()
+	menu.drinks["Screwdriver"].make()
