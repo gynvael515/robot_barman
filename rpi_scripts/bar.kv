@@ -1,0 +1,26 @@
+
+<ScrollableButton@Button>:
+    size_hint_y: None
+    height: "70sp"
+    text: "1"
+
+
+<BarScreen@Screen>:
+    button_nav: button_nav
+    GridLayout:
+        cols:2
+        ScrollView:
+            size_hint_x: .35
+            StackLayout:
+                id: button_nav
+                spacing:2
+                padding:2
+                do_scroll_x: False
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: "lr-tb"
+
+                    
+
+        GridLayout:
+            id: drink_info
