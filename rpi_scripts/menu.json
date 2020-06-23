@@ -1,0 +1,74 @@
+[
+    {
+        "drink1":{
+            "description": "Placeholder",
+            "ingredients": [
+                {
+                    "vodka":{
+                        "amount": 200
+                    },
+                    "rum":{
+                        "amount": 200
+                    },
+                    "tequilla":{
+                        "amount": 200
+                    },
+                    "gin":{
+                        "amount": 200
+                    },
+                    "cola":{
+                        "amount": 200
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "drink2":{
+            "description": "Placeholder",
+            "ingredients": [
+                {
+                    "vodka":{
+                        "amount": 200
+                    },
+                    "rum":{
+                        "amount": 200
+                    },
+                    "tequilla":{
+                        "amount": 200
+                    },
+                    "gin":{
+                        "amount": 200
+                    },
+                    "cola":{
+                        "amount": 200
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "drink3":{
+            "description": "Placeholder",
+            "ingredients": [
+                {
+                    "vodka":{
+                        "amount": 200
+                    },
+                    "rum":{
+                        "amount": 200
+                    },
+                    "tequilla":{
+                        "amount": 200
+                    },
+                    "gin":{
+                        "amount": 200
+                    },
+                    "cola":{
+                        "amount": 200
+                    }
+                }
+            ]
+        }
+    }
+]

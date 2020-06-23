@@ -36,5 +36,6 @@ class Bar(App):
         self.screenmanager.add_widget(self.bar_screen)
         return self.screenmanager
 
+
 if __name__ == '__main__':
     Bar().run()
