@@ -1,8 +1,49 @@
-
 <ScrollableButton@Button>:
     size_hint_y: None
-    height: "70sp"
+    #height: "70sp"
     text: "1"
+
+
+<DrinkButton@GridLayout>:
+    size_hint_y: None
+    cols: 2
+    height: "50sp"
+    Image:
+        id: miniature
+        #size_hint_y: None
+        size_hint_x: .2
+        source: 'src/placeholder.png'
+        allow_stretch: True
+        keep_ratio: True
+    ScrollableButton:
+        id: drink_button
+        text: "drink name"
+        height: "50sp"
+
+
+<DrinkInfo@Screen>:
+    GridLayout:
+        cols: 1
+        GridLayout:
+            cols: 2
+            size_hint_y: .75
+            Image:
+                source: "src/1.jpg"
+                allow_stretch: True
+                keep_ratio: True
+            Label:
+                text: "description"
+        Button:
+            size_hint_y: .25
+            size_hint_x: .5
+            pos_hint_x: {"x":0.25}
+            text: "make"
+            canvas:
+                Color:
+                    rgba: 0, 1, 0, 0.25
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
 
 
 <BarScreen@Screen>:
@@ -13,14 +54,14 @@
             size_hint_x: .35
             StackLayout:
                 id: button_nav
-                spacing:2
-                padding:2
+                # spacing:2
+                # padding:2
                 do_scroll_x: False
                 size_hint_y: None
                 height: self.minimum_height
                 orientation: "lr-tb"
 
-                    
-
-        GridLayout:
+        ScreenManager:
             id: drink_info
+            DrinkInfo:
+                    

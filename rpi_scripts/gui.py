@@ -18,7 +18,7 @@ os.environ["KIVY_TEXT"] = "sdl2"
 class BarScreen(Screen):
     pass
 
-class ScrollableButton(Button):
+class DrinkButton(GridLayout):
     pass
 
 class Bar(App):
@@ -32,7 +32,7 @@ class Bar(App):
         self.screenmanager = ScreenManager()
         self.bar_screen = BarScreen(name="Bar")
         for i in range(20):
-            self.bar_screen.ids['button_nav'].add_widget(ScrollableButton())
+            self.bar_screen.ids['button_nav'].add_widget(DrinkButton())
         self.screenmanager.add_widget(self.bar_screen)
         return self.screenmanager
 
