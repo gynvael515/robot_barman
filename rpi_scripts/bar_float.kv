@@ -1,0 +1,66 @@
+<ScrollableButton@Button>:
+    size_hint_y: None
+    #height: "70sp"
+    text: "1"
+
+
+<DrinkButton@GridLayout>:
+    size_hint_y: None
+    cols: 2
+    height: "50sp"
+    Image:
+        id: miniature
+        #size_hint_y: None
+        size_hint_x: .2
+        source: 'src/placeholder.png'
+        allow_stretch: True
+        keep_ratio: True
+    ScrollableButton:
+        id: drink_button
+        text: "drink name"
+        height: "50sp"
+
+
+<DrinkInfo@Screen>:
+    RelativeLayout:
+        # size_hint_y: 1
+        # size_hint_x: 1
+        Image:
+            source: "src/1.jpg"
+            allow_stretch: True
+            keep_ratio: True
+            pos_hint: {"center_x":0.15, "center_y":0.55}
+            size_hint_y: 0.5
+            size_hint_x: 0.5
+        Label:
+            pos_hint: {"center_x":0.55, "center_y":0.55}
+            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+            # text_size: self.width, None
+            text_size: 200, None
+            size_hint: 1, None
+            height: self.texture_size[1]
+        Button:
+            pos_hint: {"center_x":0.55, "center_y":0.15}
+            size_hint_y: 0.1
+            size_hint_x: 0.3
+            text: "make"
+
+<BarScreen@Screen>:
+    button_nav: button_nav
+    GridLayout:
+        cols:2
+        ScrollView:
+            size_hint_x: .35
+            StackLayout:
+                id: button_nav
+                # spacing:2
+                # padding:2
+                do_scroll_x: False
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: "lr-tb"
+
+        ScreenManager:
+            id: drink_info
+            DrinkInfo:
+                    
